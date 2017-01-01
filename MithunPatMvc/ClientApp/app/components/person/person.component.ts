@@ -5,10 +5,7 @@ import { PersonService, Person } from "./person.service";
 
 @Component({
     selector: "my-app",
-    template: require["./person.component"],
-        providers: [
-            PersonService
-        ]
+    template: require('./person.component.html') 
 })
 
 export class PersonComponent extends OnInit {
@@ -20,7 +17,7 @@ export class PersonComponent extends OnInit {
     ngOnInit() {
         this._service.loadData().then(data => {
             this.persons = data;
-        })
+        });
     }
 
     persons: Person[] = [];

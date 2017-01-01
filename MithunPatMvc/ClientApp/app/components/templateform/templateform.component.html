@@ -1,0 +1,69 @@
+﻿<div class="container">
+    <div [hidden]="submitted">
+        <h1>Template-Driven Form</h1>
+        <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name"
+                       required
+                       [(ngModel)]="model.name" name="name"
+                       #name="ngModel">
+                <div [hidden]="name.valid || name.pristine"
+                      class="alert alert-danger">
+                    Name is required
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="city"
+                       [(ngModel)]="model.city" name="city" #city="ngModel" required>
+                <div [hidden]="city.valid || city.pristine"
+                      class="alert alert-danger">
+                    City is required
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="dob">DOB</label>
+                <input type="text" class="form-control" id="dob"
+                       [(ngModel)]="model.dob" name="dob" #dob="ngModel" required pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}">
+                <div [hidden]="dob.valid || dob.pristine"
+                      class="alert alert-danger">
+                    DOB is required. It must be in mm/dd/yyyy
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="salary">Salary</label>
+                <input type="text" class="form-control" id="salary"
+                       [(ngModel)]="model.salary" name="salary" #salary="ngModel" required pattern="[0-9\.]+">
+                <div [hidden]="salary.valid || salary.pristine"
+                      class="alert alert-danger">
+                    Salary is required and must be a valid number (integer or decimal)
+                </div>
+            </div>
+            <button type="submit" class="btn btn-default" [disabled]="!heroForm.form.valid">Submit</button>
+        </form>
+    </div>
+    <div [hidden]="!submitted">
+        <h2>You submitted the following:</h2>
+        <div class="row">
+            <div class="col-xs-3">Name</div>
+            <div class="col-xs-9  pull-left">{{ model.name }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">City</div>
+            <div class="col-xs-9 pull-left">{{ model.city }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">DOB</div>
+            <div class="col-xs-9 pull-left">{{ model.dob }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">Salary</div>
+            <div class="col-xs-9 pull-left">{{ model.salary }}</div>
+        </div>
+        <br>
+        <button class="btn btn-default" (click)="submitted=false">Edit</button>
+    </div>
+</div>
+    
