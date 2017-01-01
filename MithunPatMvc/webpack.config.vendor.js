@@ -31,6 +31,8 @@ module.exports = {
             'es6-shim',
             'es6-promise',
             'jquery',
+            'moment',
+            'ng2-bootstrap',
             'zone.js',
         ]
     },
