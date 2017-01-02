@@ -19,7 +19,7 @@ export class TemplateFormComponent {
         // http://momentjs.com/
         this.model.dob = moment(new Date()).format('MM/DD/YYYY'); 
         this.model.name = "Hero Johnson";
-        this.model.salary = 30000.19;
+        this.model.salary =30000.19;
         console.log("this.model.salary=", this.model.salary);
     }
 
@@ -31,4 +31,5 @@ export class TemplateHero {
     city: string;
     dob: string;
     salary: number;
+    
 }
